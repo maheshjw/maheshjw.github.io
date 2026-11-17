@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Mahesh Jagdish Wadhokar: business analytics projects, experience and skills.">
+<title>Mahesh Wadhokar Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: left-aligned editorial portfolio. Ledger-style hero with a metrics rail, project cards with a result column, Forage simulations as a distinct dashed-border section. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --fg:#111c30; --muted:#586984; --line:#d9e0ec;
+  --accent:#1a56c8; --accent-soft:#e3ecfb; --metric:#0b7a5c; --hero:#0f1d38; --hero-fg:#eaf0fb; --hero-muted:#a8b7d1;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1220; --surface:#131d30; --fg:#e8edf6; --muted:#97a6bf; --line:#243350;
+  --accent:#7aa9ff; --accent-soft:#1a2a47; --metric:#4fd1a8; --hero:#0a1a36; --hero-fg:#eaf0fb; --hero-muted:#a8b7d1; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1220; --surface:#131d30; --fg:#e8edf6; --muted:#97a6bf; --line:#243350;
+  --accent:#7aa9ff; --accent-soft:#1a2a47; --metric:#4fd1a8; --hero:#0a1a36; --hero-fg:#eaf0fb; --hero-muted:#a8b7d1; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--font-body);margin:0}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:900px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.hero{background:var(--hero);color:var(--hero-fg);padding-block:56px 40px}
+.hero .eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hero-muted);margin:0 0 14px}
+.hero h1{font-size:clamp(2.2rem,7vw,3.8rem);letter-spacing:-.02em;font-weight:700}
+.hero .lede{max-width:60ch;margin:18px 0 0;color:var(--hero-muted);font-size:1.05rem}
+.hero a{color:var(--hero-fg)}
+.links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:22px 0 0;padding:0;list-style:none;font-size:.95rem}
+.links li{min-width:0;overflow-wrap:anywhere}
+.rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin-top:38px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:10px;overflow:hidden}
+.rail div{background:var(--hero);padding:16px 18px;min-width:0}
+.rail b{display:block;font-family:var(--font-mono);font-size:1.5rem;font-weight:500;color:#6fe0bb;font-variant-numeric:tabular-nums}
+.rail span{font-size:.8rem;color:var(--hero-muted)}
+
+main{display:flex;flex-direction:column;gap:56px;padding-block:48px 64px}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+h2{font-size:1.7rem;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:-10px 0 0;max-width:62ch}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.skills h3{font-family:var(--font-body);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--accent-soft);font-size:.82rem;padding:3px 11px;border-radius:999px}
+
+.cards{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:8px 28px}
+.card header{grid-column:1/-1}
+.card h3{font-size:1.3rem}
+.meta{color:var(--muted);font-size:.85rem;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.card ul.pts{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;min-width:0}
+.res{align-self:start;border-left:3px solid var(--metric);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:12px}
+.res b{display:block;font-family:var(--font-mono);font-weight:500;font-size:1.35rem;color:var(--metric);line-height:1.1;font-variant-numeric:tabular-nums}
+.res span{font-size:.78rem;color:var(--muted)}
+.card .chips{grid-column:1/-1;margin-top:8px}
+@media (max-width:640px){.card{grid-template-columns:minmax(0,1fr)}.res{flex-direction:row;flex-wrap:wrap;gap:6px 24px;order:2}}
+.metric{color:var(--metric);font-weight:600;font-variant-numeric:tabular-nums}
+
+.tl{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.tl article{position:relative;padding:0 0 28px 24px;min-width:0}
+.tl article::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl h3{font-size:1.15rem}
+.tl ul{margin:10px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+
+.forage{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.sim{border:1.5px dashed var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--surface)}
+.sim .tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.sim h3{font-size:1.05rem}
+.sim ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.note{color:var(--muted);font-size:.88rem;margin:0;max-width:62ch}
+
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;min-width:0}
+.edu strong{display:block;font-family:var(--font-display);font-size:1.05rem}
+.edu span{color:var(--muted);font-size:.88rem}
+footer{border-top:1px solid var(--line);padding-block:24px 36px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="hero band">
+  <div class="inner">
+    <p class="eyebrow">Business Analytics · Boston, MA</p>
+    <h1>Mahesh Jagdish Wadhokar</h1>
+    <p class="lede">M.S. Business Analytics student at Boston University's Questrom School of Business (expected January 2027). I build data pipelines in Python and SQL, model financial and operational data, and turn the results into dashboards and recommendations that stakeholders can act on.</p>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/maheshjagdishwadhokar">LinkedIn</a></li>
+      <li><a href="https://github.com/maheshjw">GitHub</a></li>
+      <li>maheshjw@bu.edu</li>
+    </ul>
+    <div class="rail">
+      <div><b>67.5M</b><span>CRSP records processed</span></div>
+      <div><b>68.4%</b><span>earnings-surprise model accuracy</span></div>
+      <div><b>30 yrs</b><span>equity market analysis, uninterrupted</span></div>
+      <div><b>40%</b><span>less stakeholder decision ambiguity</span></div>
+    </div>
+  </div>
+</div>
+
+<main class="band">
+<div class="inner" style="display:flex;flex-direction:column;gap:56px">
+
+  <section>
+    <h2>Toolkit</h2>
+    <div class="skills">
+      <div><h3>Technical</h3><ul class="chips"><li>Python</li><li>SQL</li><li>R</li><li>Excel</li><li>Power BI</li><li>Tableau</li><li>Git</li></ul></div>
+      <div><h3>Analytics engineering</h3><ul class="chips"><li>Data pipelines</li><li>ETL</li><li>Data quality validation</li><li>Dashboards</li><li>Predictive modeling</li><li>Requirements gathering</li><li>Documentation</li></ul></div>
+      <div><h3>Languages</h3><ul class="chips"><li>English (professional)</li><li>Hindi (native)</li><li>German (conversational)</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <p class="sub">Coursework and independent research at Boston University, Questrom, plus a capstone with Schneider Electric and a conference paper.</p>
+    <div class="cards">
+
+      <article class="card">
+        <header><h3>Earnings Surprise &amp; Stock Return Predictor</h3><p class="meta">BA870 / AC820 Financial Analytics · Boston University, Questrom · Apr–May 2026</p></header>
+        <ul class="pts">
+          <li>Built analytical datasets for earnings-surprise prediction with transformation logic in Python and SQL.</li>
+          <li>Trained XGBoost and Random Forest models to predict earnings surprises.</li>
+          <li>Built and deployed a stakeholder-facing analytics dashboard so non-technical readers could use the model outputs.</li>
+        </ul>
+        <div class="res"><div><b>67.5M</b><span>CRSP records</span></div><div><b>556K</b><span>IBES records</span></div><div><b>68.4%</b><span>model accuracy</span></div></div>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>XGBoost</li><li>Random Forest</li><li>Dashboard</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Early Warning Signals for Equity Market Downturns</h3><p class="meta">Independent research · Boston University, Questrom · Jul–Aug 2026</p></header>
+        <ul class="pts">
+          <li>Delivered an uninterrupted 30-year equity market analysis, keeping the pipeline running through two real data failures: a mid-project API licensing change and malformed survey data that needed custom parsing.</li>
+          <li>Validated the early-warning models with time-series cross-validation.</li>
+        </ul>
+        <div class="res"><div><b>30 yrs</b><span>continuous analysis</span></div><div><b>2</b><span>data failures resolved</span></div></div>
+        <ul class="chips"><li>Time series</li><li>Cross-validation</li><li>Data pipelines</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Multi-Stakeholder Risk Scoring: Traffic Collision Study</h3><p class="meta">Boston University, Questrom · Nov–Dec 2025</p></header>
+        <ul class="pts">
+          <li>Built scalable SQL data models and Power BI reporting over the collision records.</li>
+          <li>Produced KPI dashboards and ranked tables that gave stakeholders a clear basis for decisions.</li>
+        </ul>
+        <div class="res"><div><b>40%</b><span>less decision ambiguity</span></div><div><b>5,000+</b><span>records</span></div></div>
+        <ul class="chips"><li>SQL</li><li>Power BI</li><li>KPI design</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Regulatory Risk Structure Analysis: European Drug Regulation</h3><p class="meta">Boston University, Questrom · Jan–Feb 2026</p></header>
+        <ul class="pts">
+          <li>Designed Python pipelines using TF-IDF, K-Means, PCA and UMAP.</li>
+          <li>Reduced classification errors through automated validation checks.</li>
+        </ul>
+        <div class="res"><div><b>500+</b><span>EMA regulatory records</span></div></div>
+        <ul class="chips"><li>Python</li><li>TF-IDF</li><li>K-Means</li><li>PCA</li><li>UMAP</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Capstone: Business Strategy Engagement</h3><p class="meta">MIT World Peace University with Schneider Electric, Pune · Aug–Nov 2024</p></header>
+        <ul class="pts">
+          <li>Worked with Finance, Marketing and Operations stakeholders to build data models and analytics solutions, turning business questions into clear metrics.</li>
+        </ul>
+        <div class="res"><div><b>15%</b><span>operational improvement contributed</span></div></div>
+      </article>
+
+      <article class="card">
+        <header><h3>Enhancing Portfolio Optimization with Machine Learning</h3><p class="meta">Publication · 16th ICACCTT (ACT 2025)</p></header>
+        <ul class="pts">
+          <li>Built end-to-end data pipelines and analytical models on 10 years of financial data.</li>
+        </ul>
+        <div class="res"><div><b>+12%</b><span>Sharpe ratio</span></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="tl">
+      <article>
+        <h3>Process Optimization Intern · Sona Comstar, Pune</h3>
+        <p class="meta">Jan–Jun 2025</p>
+        <ul>
+          <li>Designed, built and maintained data pipelines in Python and SQL that delivered consistent accuracy across <span class="metric">500+</span> operational parameters.</li>
+          <li>Drove a <span class="metric">15%</span> sustained operational improvement by translating Finance, Operations and Engineering requirements into technical specifications, tracked through KPI reports and dashboards.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Operations Intern · Vedant Engineering</h3>
+        <p class="meta">Mar–Jul 2022</p>
+        <ul>
+          <li>Designed jigs and die components for CNC manufacturing, reducing setup misalignment by <span class="metric">15%</span>.</li>
+          <li>Redesigned tooling layouts with shop floor engineers, cutting tolerance variation by <span class="metric">15%</span>.</li>
+          <li>Standardized fixture documentation and training, cutting technician onboarding time by <span class="metric">30%</span> across two production lines.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Forage job simulations</h2>
+    <p class="note">Virtual job simulations completed on Forage in 2026. These are training exercises, not employment.</p>
+    <div class="forage">
+      <article class="sim">
+        <span class="tag">J.P. Morgan · May 2026</span>
+        <h3>Quantitative Research</h3>
+        <ul>
+          <li>Analyzed a book of loans to estimate a customer's probability of default.</li>
+          <li>Used dynamic programming to convert FICO scores into categorical data to predict defaults.</li>
+        </ul>
+      </article>
+      <article class="sim">
+        <span class="tag">Bank of America · Apr 2026</span>
+        <h3>Global Markets Sales and Trading Analyst</h3>
+        <ul>
+          <li>Analyzed financial trends and market dynamics in Excel and Bloomberg, aligned with client objectives.</li>
+          <li>Proposed ways to improve trade execution workflow through automation and process analysis.</li>
+          <li>Developed a client proposal for portfolio diversification, sustainability and moderate growth.</li>
+        </ul>
+      </article>
+      <article class="sim">
+        <span class="tag">Goldman Sachs · Apr 2026</span>
+        <h3>Operations</h3>
+        <ul>
+          <li>Analyzed financial data and identified issues in trade settlements and asset transfers for high net worth clients.</li>
+          <li>Resolved data discrepancies across <span class="metric">20+</span> financial transaction records with SQL-based data models and reporting.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div><strong>M.S. Business Analytics</strong><span>Boston University, Questrom School of Business · expected Jan 2027</span></div>
+      <div><strong>BTech Mechanical Engineering</strong><span>MIT World Peace University, Pune · Jul 2025</span></div>
+      <div><strong>Certifications</strong><span>Business Analytics with R (NPTEL) · Data Science for Engineers (NPTEL)</span></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="band"><div class="inner">Mahesh Jagdish Wadhokar · Boston, MA</div></footer>
+
+</body>
+</html>
