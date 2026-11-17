@@ -1,0 +1,266 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mahesh Wadhokar Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: left-aligned editorial portfolio. Ledger-style hero with a metrics rail, project cards with a result column, Forage simulations as a distinct dashed-border section. */
+:root{
+  --bg:#fffaf6; --surface:#ffffff; --fg:#2a1633; --muted:#6c5877; --line:#f0e2da;
+  --accent:#c2410c; --accent-soft:#ffe8d6; --metric:#0f766e; --hero:#f8fcff; --hero-fg:#2a1633; --hero-muted:#6c5877;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--font-body);margin:0}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:900px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.hero{background:linear-gradient(120deg,#d8f5e8 0%,#d4e9ff 50%,#e5dcfb 100%);color:var(--hero-fg);padding-block:56px 40px;border-bottom:6px solid transparent;border-image:linear-gradient(90deg,#34d399,#38bdf8,#8b5cf6,#f472b6) 1}
+.hero .eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hero-muted);margin:0 0 14px}
+.hero h1{font-size:clamp(2.2rem,7vw,3.8rem);letter-spacing:-.02em;font-weight:700}
+.hero .lede{max-width:60ch;margin:18px 0 0;color:var(--hero-muted);font-size:1.05rem}
+.hero a{color:var(--hero-fg)}
+.links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:22px 0 0;padding:0;list-style:none;font-size:.95rem}
+.links li{min-width:0;overflow-wrap:anywhere}
+.rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;margin-top:38px;background:rgba(42,22,51,.1);border:1px solid rgba(42,22,51,.1);border-radius:10px;overflow:hidden}
+.rail div{background:var(--hero);padding:16px 18px;min-width:0}
+.rail b{display:block;font-family:var(--font-mono);font-size:1.5rem;font-weight:500;color:var(--metric);font-variant-numeric:tabular-nums}
+.rail span{font-size:.8rem;color:var(--hero-muted)}
+
+main{display:flex;flex-direction:column;gap:56px;padding-block:48px 64px}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+h2{font-size:1.7rem;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:-10px 0 0;max-width:62ch}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.skills h3{font-family:var(--font-body);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--accent-soft);font-size:.82rem;padding:3px 11px;border-radius:999px}
+
+.cards{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:8px 28px}
+.card header{grid-column:1/-1}
+.card h3{font-size:1.3rem}
+.meta{color:var(--muted);font-size:.85rem;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.card ul.pts{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px;min-width:0}
+.res{align-self:start;border-left:3px solid var(--metric);padding:2px 0 2px 14px;display:flex;flex-direction:column;gap:12px}
+.res b{display:block;font-family:var(--font-mono);font-weight:500;font-size:1.35rem;color:var(--metric);line-height:1.1;font-variant-numeric:tabular-nums}
+.res span{font-size:.78rem;color:var(--muted)}
+.card .chips{grid-column:1/-1;margin-top:8px}
+@media (max-width:640px){.card{grid-template-columns:minmax(0,1fr)}.res{flex-direction:row;flex-wrap:wrap;gap:6px 24px;order:2}}
+.metric{color:var(--metric);font-weight:600;font-variant-numeric:tabular-nums}
+
+.tl{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.tl article{position:relative;padding:0 0 28px 24px;min-width:0}
+.tl article::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl h3{font-size:1.15rem}
+.tl ul{margin:10px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+
+.forage{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.sim{border:1.5px dashed var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--surface)}
+.sim .tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.sim h3{font-size:1.05rem}
+.sim ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.note{color:var(--muted);font-size:.88rem;margin:0;max-width:62ch}
+
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.edu div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;min-width:0}
+.edu strong{display:block;font-family:var(--font-display);font-size:1.05rem}
+.edu span{color:var(--muted);font-size:.88rem}
+
+.hero-top{display:flex;align-items:center;gap:32px;justify-content:space-between}
+.hero-text{min-width:0;flex:1}
+.photo{flex:none;width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 6px 20px rgba(42,22,51,.15);background:#fff}
+@media (max-width:640px){.hero-top{flex-direction:column-reverse;align-items:flex-start;gap:20px}.photo{width:128px;height:128px}}
+footer{border-top:1px solid var(--line);padding-block:24px 36px;color:var(--muted);font-size:.85rem}
+</style>
+
+<div class="hero band">
+  <div class="inner">
+    <div class="hero-top">
+    <div class="hero-text">
+    <p class="eyebrow">Product &amp; Strategy Analytics · Boston, MA</p>
+    <h1>Mahesh Jagdish Wadhokar</h1>
+    <p class="lede">M.S. Business Analytics student at Boston University's Questrom School of Business (expected January 2027). I work in SQL and Python to turn large datasets into clear, decision-ready recommendations, and I’ve partnered with Finance, Marketing, Operations and Engineering stakeholders to define the questions, build the models and dashboards, and present the results.</p>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/maheshjagdishwadhokar">LinkedIn</a></li>
+      <li><a href="https://github.com/maheshjw">GitHub</a></li>
+      <li><a href="mailto:maheshjw@bu.edu">maheshjw@bu.edu</a></li>
+    </ul>
+    </div>
+    <img class="photo" src="data:image/jpeg;base64,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" alt="Portrait of Mahesh Jagdish Wadhokar" width="180" height="180">
+    </div>
+    <div class="rail">
+      <div><b>67.5M</b><span>CRSP records processed</span></div>
+      <div><b>68.4%</b><span>earnings-surprise model accuracy</span></div>
+      <div><b>30 yrs</b><span>equity market analysis, uninterrupted</span></div>
+      <div><b>40%</b><span>less stakeholder decision ambiguity</span></div>
+    </div>
+  </div>
+</div>
+
+<main class="band">
+<div class="inner" style="display:flex;flex-direction:column;gap:56px">
+
+  <section>
+    <h2>Product &amp; strategy analytics</h2>
+    <p class="sub">How my work maps to analyst roles on product and strategy teams.</p>
+    <div class="edu">
+      <div><strong>SQL and large datasets</strong><span>SQL data models over collision records; 67.5M CRSP and 556K IBES records transformed in Python and SQL; pipelines covering 500+ operational parameters at Sona Comstar.</span></div>
+      <div><strong>Dashboards and narratives</strong><span>Power BI KPI dashboards and a deployed stakeholder-facing model dashboard; 40% less decision ambiguity in the collision study.</span></div>
+      <div><strong>Cross-functional partnership</strong><span>Turned Finance, Operations and Engineering requirements into specs (15% sustained improvement); Schneider Electric capstone with Finance, Marketing and Operations.</span></div>
+      <div><strong>Modeling and statistics</strong><span>XGBoost and Random Forest earnings-surprise model at 68.4% accuracy; time-series cross-validation across 30 years of market data.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Toolkit</h2>
+    <div class="skills">
+      <div><h3>Technical</h3><ul class="chips"><li>SQL</li><li>Python</li><li>Tableau</li><li>Power BI</li><li>R</li><li>Excel</li><li>Git</li></ul></div>
+      <div><h3>Analytics engineering</h3><ul class="chips"><li>Data pipelines</li><li>ETL</li><li>Data quality validation</li><li>Dashboards</li><li>Predictive modeling</li><li>Requirements gathering</li><li>Documentation</li></ul></div>
+      <div><h3>Languages</h3><ul class="chips"><li>English (professional)</li><li>Hindi (native)</li><li>German (conversational)</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected projects</h2>
+    <p class="sub">Coursework and independent research at Boston University, Questrom, plus a capstone with Schneider Electric and a conference paper.</p>
+    <div class="cards">
+
+      <article class="card">
+        <header><h3>Earnings Surprise &amp; Stock Return Predictor</h3><p class="meta">BA870 / AC820 Financial Analytics · Boston University, Questrom · Apr–May 2026</p></header>
+        <ul class="pts">
+          <li>Built analytical datasets for earnings-surprise prediction with transformation logic in Python and SQL.</li>
+          <li>Trained XGBoost and Random Forest models to predict earnings surprises.</li>
+          <li>Built and deployed a stakeholder-facing analytics dashboard so non-technical readers could use the model outputs.</li>
+        </ul>
+        <div class="res"><div><b>67.5M</b><span>CRSP records</span></div><div><b>556K</b><span>IBES records</span></div><div><b>68.4%</b><span>model accuracy</span></div></div>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>XGBoost</li><li>Random Forest</li><li>Dashboard</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Multi-Stakeholder Risk Scoring: Traffic Collision Study</h3><p class="meta">Boston University, Questrom · Nov–Dec 2025</p></header>
+        <ul class="pts">
+          <li>Built scalable SQL data models and Power BI reporting over the collision records.</li>
+          <li>Produced KPI dashboards and ranked tables that gave stakeholders a clear basis for decisions.</li>
+        </ul>
+        <div class="res"><div><b>40%</b><span>less decision ambiguity</span></div><div><b>5,000+</b><span>records</span></div></div>
+        <ul class="chips"><li>SQL</li><li>Power BI</li><li>KPI design</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Early Warning Signals for Equity Market Downturns</h3><p class="meta">Independent research · Boston University, Questrom · Jul–Aug 2026</p></header>
+        <ul class="pts">
+          <li>Delivered an uninterrupted 30-year equity market analysis, keeping the pipeline running through two real data failures: a mid-project API licensing change and malformed survey data that needed custom parsing.</li>
+          <li>Validated the early-warning models with time-series cross-validation.</li>
+        </ul>
+        <div class="res"><div><b>30 yrs</b><span>continuous analysis</span></div><div><b>2</b><span>data failures resolved</span></div></div>
+        <ul class="chips"><li>Time series</li><li>Cross-validation</li><li>Data pipelines</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Regulatory Risk Structure Analysis: European Drug Regulation</h3><p class="meta">Boston University, Questrom · Jan–Feb 2026</p></header>
+        <ul class="pts">
+          <li>Designed Python pipelines using TF-IDF, K-Means, PCA and UMAP.</li>
+          <li>Reduced classification errors through automated validation checks.</li>
+        </ul>
+        <div class="res"><div><b>500+</b><span>EMA regulatory records</span></div></div>
+        <ul class="chips"><li>Python</li><li>TF-IDF</li><li>K-Means</li><li>PCA</li><li>UMAP</li></ul>
+      </article>
+
+      <article class="card">
+        <header><h3>Capstone: Business Strategy Engagement</h3><p class="meta">MIT World Peace University with Schneider Electric, Pune · Aug–Nov 2024</p></header>
+        <ul class="pts">
+          <li>Worked with Finance, Marketing and Operations stakeholders to build data models and analytics solutions, turning business questions into clear metrics.</li>
+        </ul>
+        <div class="res"><div><b>15%</b><span>operational improvement contributed</span></div></div>
+      </article>
+
+      <article class="card">
+        <header><h3>Enhancing Portfolio Optimization with Machine Learning</h3><p class="meta">Publication · 16th ICACCTT (ACT 2025)</p></header>
+        <ul class="pts">
+          <li>Built end-to-end data pipelines and analytical models on 10 years of financial data.</li>
+        </ul>
+        <div class="res"><div><b>+12%</b><span>Sharpe ratio</span></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="tl">
+      <article>
+        <h3>Process Optimization Intern · Sona Comstar, Pune</h3>
+        <p class="meta">Jan–Jun 2025</p>
+        <ul>
+          <li>Designed, built and maintained data pipelines in Python and SQL that delivered consistent accuracy across <span class="metric">500+</span> operational parameters.</li>
+          <li>Drove a <span class="metric">15%</span> sustained operational improvement by translating Finance, Operations and Engineering requirements into technical specifications, tracked through KPI reports and dashboards.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Operations Intern · Vedant Engineering</h3>
+        <p class="meta">Mar–Jul 2022</p>
+        <ul>
+          <li>Designed jigs and die components for CNC manufacturing, reducing setup misalignment by <span class="metric">15%</span>.</li>
+          <li>Redesigned tooling layouts with shop floor engineers, cutting tolerance variation by <span class="metric">15%</span>.</li>
+          <li>Standardized fixture documentation and training, cutting technician onboarding time by <span class="metric">30%</span> across two production lines.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Forage job simulations</h2>
+    <p class="note">Virtual job simulations completed on Forage in 2026. These are training exercises, not employment.</p>
+    <div class="forage">
+      <article class="sim">
+        <span class="tag">J.P. Morgan · May 2026</span>
+        <h3>Quantitative Research</h3>
+        <ul>
+          <li>Analyzed a book of loans to estimate a customer's probability of default.</li>
+          <li>Used dynamic programming to convert FICO scores into categorical data to predict defaults.</li>
+        </ul>
+        <p class="note"><a href="https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/bWqaecPDbYAwSDqJy_Sj7temL583QAYpHXD_69d6995b1485ae3787c20d2f_1778097316938_completion_certificate.pdf" target="_blank" rel="noopener">View certificate ↗</a></p>
+      </article>
+      <article class="sim">
+        <span class="tag">Bank of America · Apr 2026</span>
+        <h3>Global Markets Sales and Trading Analyst</h3>
+        <ul>
+          <li>Analyzed financial trends and market dynamics in Excel and Bloomberg, aligned with client objectives.</li>
+          <li>Proposed ways to improve trade execution workflow through automation and process analysis.</li>
+          <li>Developed a client proposal for portfolio diversification, sustainability and moderate growth.</li>
+        </ul>
+        <p class="note"><a href="https://www.theforage.com/completion-certificates/fMCqmt8qR4G85Puue/rKCBL7y5yKgzDGZmR_fMCqmt8qR4G85Puue_69d6995b1485ae3787c20d2f_1776548419783_completion_certificate.pdf" target="_blank" rel="noopener">View certificate ↗</a></p>
+      </article>
+      <article class="sim">
+        <span class="tag">Goldman Sachs · Apr 2026</span>
+        <h3>Operations</h3>
+        <ul>
+          <li>Analyzed financial data and identified issues in trade settlements and asset transfers for high net worth clients.</li>
+          <li>Resolved data discrepancies across <span class="metric">20+</span> financial transaction records with SQL-based data models and reporting.</li>
+        </ul>
+        <p class="note"><a href="https://www.theforage.com/completion-certificates/MBA4MnZTNFEoJZGnk/wNge9cjzNTXD2acrv_MBA4MnZTNFEoJZGnk_69d6995b1485ae3787c20d2f_1775672929923_completion_certificate.pdf" target="_blank" rel="noopener">View certificate ↗</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div><strong>M.S. Business Analytics</strong><span>Boston University, Questrom School of Business · expected Jan 2027</span></div>
+      <div><strong>BTech Mechanical Engineering</strong><span>MIT World Peace University, Pune · Jul 2025</span></div>
+      <div><strong>Certifications</strong><span>Business Analytics with R (NPTEL) · Data Science for Engineers (NPTEL)</span></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="band"><div class="inner">Mahesh Jagdish Wadhokar · Boston, MA</div></footer>
+
+</body></html>
